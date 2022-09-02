@@ -9,8 +9,15 @@ class ChildComponent extends React.Component {
             showJobs: !this.state.showJobs
         })
     }
+
+    handelOnClickDelete = (job) => {
+        // console.log('job:',job)
+        this.props.deleteJob(job)
+    }
+
     render() {
         // console.log('check props:', this.props)
+
         let { name, age, arrJob } = this.props; //this.props là 1 object
         let { showJobs } = this.state;
         return (
@@ -20,8 +27,7 @@ class ChildComponent extends React.Component {
                     tôi tên {name} - {age}
                 </div>
                 {/* điều kiện gọn */}
-                {showJobs === false 
-                    ?
+                {showJobs === false ?
                     <div><button onClick={() => this.handelShowHide()}>Show</button></div>
                     :
                     <>
@@ -30,7 +36,8 @@ class ChildComponent extends React.Component {
                                 arrJob.map((item) => {
                                     return (
                                         <div key={item.id}>
-                                            {item.title} - {item.salary}
+                                            {item.title} - {item.salary} 
+                                            <span onClick={()=> this.handelOnClickDelete(item)}> x</span>
                                         </div>
                                     )
                                 })
