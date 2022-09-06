@@ -78,7 +78,7 @@ class ListTodo extends React.Component {
                                     {isEmptyObj === true ? <span>{index + 1} - {item.title}</span>
                                         :
                                         <>
-                                            {editTodo.id == item.id ? <span>{index + 1} - 
+                                            {editTodo.id === item.id ? <span>{index + 1} - 
                                             <input value={editTodo.title} 
                                             onChange={(e) => this.handelOnChangeEditTodo(e) }
                                             /> </span>
@@ -90,7 +90,7 @@ class ListTodo extends React.Component {
                                     <button className="edit"
                                         onClick={() => this.handelEditTodo(item)}
                                     >
-                                        {isEmptyObj === false && editTodo.id == item.id ? 'Save' : 'Edit' }
+                                        {isEmptyObj === false && editTodo.id === item.id ? 'Save' : 'Edit' }
                                         </button>
                                     <button className="delete"
                                         onClick={() => this.handelDeleteTodo(item)}
